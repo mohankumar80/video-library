@@ -1,0 +1,143 @@
+@import url("https://one-ui.netlify.app/styles/one.css");
+body {
+    margin: 0;
+    padding: 0;
+}
+
+.App {
+    display: grid;
+    grid-template-columns: 1fr 7fr;
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: black;
+    color: white;
+    height: 100vh;
+}
+
+.list-items {
+    font-weight: 600;
+    color: red;
+    text-align: center;
+}
+
+.list-items:hover {
+    transform: scale(1.25);
+}
+
+.list-links {
+    text-decoration: none;
+    color: white;
+}
+
+.card {
+    height: 16rem;
+    margin: 0.5rem 0;
+}
+
+.card-body {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.card-title {
+    font-size: 0.9rem;
+    font-weight: 600;
+}
+
+.card-inside {
+    display: flex;
+    align-items: center;
+    margin: 1rem 0;
+}
+
+.card-title-inside {
+    font-size: 1.1rem;
+    font-weight: 600;
+    margin: 0 1rem;
+}
+
+.flex {
+    display: flex;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+}
+
+.flex-reverse {
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: space-evenly;
+    flex-wrap: wrap-reverse;
+}
+
+.main-container {
+    padding: 1rem;
+}
+
+.sub-container {
+    height: 80vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.search-bar {
+    margin: 1rem 0;
+    width: 98%;
+}
+
+.navigation {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.btn-signout {
+    margin-bottom: 1.5rem;
+}
+
+
+/* Login  */
+
+.Login {
+    width: 100%;
+    height: 75vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.login-container {
+    width: 18rem;
+    border: 2px solid var(--light-gray);
+    border-radius: 0.5rem;
+}
+
+.login-sub-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-bottom: 2px solid var(--light-gray);
+    padding: 1rem 1rem;
+}
+
+.btn-login {
+    width: auto;
+    margin-top: 1rem;
+}
+
+.signup-container {
+    display: flex;
+    justify-content: center;
+    height: 4rem;
+}
+
+.btn-signup {
+    display: block;
+    margin: 1rem 0;
+    width: 5rem;
+}
+
+.login-inputs {
+    width: 96%;
+}
