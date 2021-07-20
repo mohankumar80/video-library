@@ -92,6 +92,7 @@ body {
 }
 
 .btn-signout {
+    padding: 0 auto;
     margin-bottom: 1.5rem;
 }
 
@@ -188,5 +189,27 @@ body {
     }
     .card-margin {
         margin: 0 1rem;
+    }
+}
+
+@media screen and (min-width: 325px) and (max-width: 480px) {
+    .search-bar {
+        width: 85%;
+        margin: 0 1rem;
+    }
+    .list-items {
+        padding: 1.25rem;
+    }
+    .card {
+        margin: 0.5rem 2rem;
+    }
+    .card-margin {
+        margin: 0rem 2.5rem;
+    }
+    .btn-signout {
+        margin-left: 1.5rem;
+    }
+    .login-container {
+        margin: 0 2.5rem;
     }
 }

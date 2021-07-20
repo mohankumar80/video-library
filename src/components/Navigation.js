@@ -41,7 +41,7 @@ export default function Navigation() {
                     <FontAwesomeIcon icon={farUser} className="icon-sign-out" /><p className="inner-text"> sign out </p>
                 </button>
                 :<Link to="/login" className="btn btn-primary btn-login">
-                    <FontAwesomeIcon icon={faUser} className="icon-sing-out" /> <p className="inner-text"> login </p>
+                    <FontAwesomeIcon icon={faUser} className="icon-sign-out" /> <p className="inner-text"> login </p>
                 </Link>
             }
         </div>
