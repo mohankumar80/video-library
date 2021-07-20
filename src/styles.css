@@ -64,9 +64,8 @@ body {
 
 .flex-reverse {
     display: flex;
-    flex-direction: row-reverse;
-    justify-content: space-evenly;
-    flex-wrap: wrap-reverse;
+    flex-wrap: wrap;
+    justify-content: space-around;
 }
 
 .main-container {
@@ -111,6 +110,7 @@ body {
     width: 18rem;
     border: 2px solid var(--light-gray);
     border-radius: 0.5rem;
+    margin: 0 1rem;
 }
 
 .login-sub-container {
@@ -140,4 +140,53 @@ body {
 
 .login-inputs {
     width: 96%;
+}
+
+.icon-sign-out {
+    display: none;
+}
+
+
+/* Mobile Syles */
+
+@media screen and (max-width: 480px) {
+    .App {
+        height: 100%;
+        display: grid;
+        grid-template-areas: "routes" "navigation";
+    }
+    .search-bar {
+        margin: 0 0.5rem;
+        width: 90%;
+    }
+    .navigation {
+        display: flex;
+        flex-direction: row;
+        align-items: baseline;
+        justify-content: space-around;
+        grid-area: navigation;
+    }
+    .routes {
+        grid-area: routes;
+    }
+    .list-unstyled {
+        display: flex;
+        justify-content: flex-end;
+    }
+    .list-items {
+        padding: 1rem;
+    }
+    .list-inner-text,
+    .inner-text {
+        display: none;
+    }
+    .icon-sign-out {
+        display: inline;
+    }
+    .flex {
+        padding: 0 1rem;
+    }
+    .card-margin {
+        margin: 0 1rem;
+    }
 }

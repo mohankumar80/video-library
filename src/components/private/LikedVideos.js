@@ -14,7 +14,7 @@ export default function LikedVideos() {
                     : <div className="flex-reverse">
                         {
                             likedVideos.map(video => {
-                                return <div key={video.videoId} className="card">
+                                return <div key={video.videoId} className="card card-margin">
                                     <Link to={`/watch/${video.videoId}`}>
                                         <img className="card-img" src={video.thumbnail} alt={video.description} />
                                     </Link>

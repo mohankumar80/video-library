@@ -16,7 +16,7 @@ export default function History() {
         <div className="flex-reverse">
           {history.map((video) => {
             return (
-              <div key={video.videoId} className="card">
+              <div key={video.videoId} className="card card-margin">
                 <Link to={`/watch/${video.videoId}`}>
                   <img
                     className="card-img"
