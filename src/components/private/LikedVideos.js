@@ -10,7 +10,7 @@ export default function LikedVideos() {
         <div className="LikedVideos">
             {
                 likedVideos.length === 0
-                    ? <h1>No liked videos!!</h1>
+                    ? <h2 className="text-align-center empty-container">No liked videos!!</h2>
                     : <div className="flex-reverse">
                         {
                             likedVideos.map(video => {

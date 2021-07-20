@@ -20,7 +20,9 @@ export default function VideoCard() {
         <div className="main-container">
             <div className="sub-container">
                 <div className="VideoCard">
-                    <ReactPlayer url={`www.youtube.com/watch?v=${video.videoId}`} controls className="videoPlayer" />
+                    <div className="wrapper">
+                        <ReactPlayer url={`www.youtube.com/watch?v=${video.videoId}`} controls className="reactplayer" width="100%" height="100%" />
+                    </div>
                     <div className="card-inside">
                         <img src={video.avatar} className="avatar-normal" alt="" />
                         <p className="card-title-inside">{video.description}</p>
@@ -37,7 +39,6 @@ export default function VideoCard() {
                     }
                     {
                         playLists.findIndex(item => item.videoId === video.videoId) === -1
-                            // ? <i className="far fa-bookmark fa-2x" onClick={() => dispatch({ type: "ADD_TO_PLAYLIST", payload: video })}></i>
                             ? <FontAwesomeIcon icon={farBookMark} size="2x" onClick={() => dispatch({type: "OPEN_MODAL"})} />
                             : <FontAwesomeIcon icon={faBookmark} size="2x" onClick={() => dispatch({ type: "REMOVE_FROM_PLAYLIST", payload: video })} />
                     }

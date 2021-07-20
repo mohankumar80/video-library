@@ -10,19 +10,20 @@ export default function Playlist() {
         <div className="PlayList">
             {
                 playLists.length === 0
-                    ? <h1>No Playlists Available</h1>
+                    ? <h2 className="text-align-center empty-container">No Playlists Available</h2>
                     : <div>
                         {
                             playLists.map(playlist => {
-                                return <>
+                                return <div className="full-height">
                                     <h3>{playlist.name}</h3>
-                                    <p>{console.log(playlist.playlist)}</p>
-                                    {
-                                        playlist.playlist.map(video => {
-                                            return <VideosListing video={video} />
-                                        })
-                                    }
-                                </>
+                                    <div className="flex-reverse">
+                                        {
+                                            playlist.playlist.map(video => {
+                                                return <VideosListing video={video} />
+                                            })
+                                        }
+                                    </div>
+                                </div>
                             })
                         }
                     </div>

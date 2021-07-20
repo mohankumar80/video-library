@@ -10,9 +10,9 @@ export default function History() {
 
   return (
     <div className="History">
-      {history.length === 0 ? (
-        <h1>No History!!</h1>
-      ) : (
+      {history.length === 0 
+      ?<h2 className="text-align-center empty-container"> No History!!</h2>
+      : (
         <div className="flex-reverse">
           {history.map((video) => {
             return (

@@ -66,14 +66,16 @@ body {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-around;
+    align-items: center;
+    height: auto;
 }
 
 .main-container {
     padding: 1rem;
+    margin-bottom: 20rem;
 }
 
 .sub-container {
-    height: 80vh;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -92,8 +94,11 @@ body {
 }
 
 .btn-signout {
-    padding: 0 auto;
-    margin-bottom: 1.5rem;
+    margin-bottom: 3rem;
+}
+
+.inner-text {
+    margin: 0;
 }
 
 
@@ -101,7 +106,7 @@ body {
 
 .Login {
     width: 100%;
-    height: 75vh;
+    height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -147,8 +152,33 @@ body {
     display: none;
 }
 
+.empty-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
 
-/* Mobile Syles */
+.wrapper {
+    width: 50rem;
+    height: 25rem;
+}
+
+.modal {
+    width: 18rem;
+}
+
+.modal-body {
+    padding: 0.5rem 0.5rem 0;
+}
+
+.input-playlist {
+    width: 75%;
+}
+
+
+/* Mobile Styles */
 
 @media screen and (max-width: 480px) {
     .App {
@@ -166,6 +196,10 @@ body {
         align-items: baseline;
         justify-content: space-around;
         grid-area: navigation;
+        position: sticky;
+        bottom: 0;
+        z-index: 1;
+        background-color: black;
     }
     .routes {
         grid-area: routes;
@@ -181,21 +215,36 @@ body {
     .inner-text {
         display: none;
     }
+    .card {
+        padding: 0 0.5rem;
+    }
     .icon-sign-out {
         display: inline;
-    }
-    .flex {
-        padding: 0 1rem;
+        margin: 0;
     }
     .card-margin {
         margin: 0 1rem;
     }
+    .wrapper {
+        position: relative;
+        padding-top: 56.25%;
+        height: auto;
+        width: auto;
+    }
+    .reactplayer {
+        position: absolute;
+        top: 0;
+        left: 0;
+    }
 }
 
 @media screen and (min-width: 325px) and (max-width: 480px) {
+    .navigation {
+        width: 360px;
+    }
     .search-bar {
         width: 85%;
-        margin: 0 1rem;
+        margin: 0 0.75rem;
     }
     .list-items {
         padding: 1.25rem;
@@ -205,9 +254,6 @@ body {
     }
     .card-margin {
         margin: 0rem 2.5rem;
-    }
-    .btn-signout {
-        margin-left: 1.5rem;
     }
     .login-container {
         margin: 0 2.5rem;

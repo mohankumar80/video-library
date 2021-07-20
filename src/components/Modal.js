@@ -28,7 +28,13 @@ export default function Modal(props) {
   return (
     <div className="modal">
       <div className="modal-body"> 
-        <input type="text" className="input input-styled" value={inputBoxValue} onChange={changeHandler} />
+        <input 
+          type="text" 
+          className="input input-styled input-playlist" 
+          value={inputBoxValue} 
+          onChange={changeHandler} 
+          placeholder="add to playlist ..."
+        />
         <button
           className="btn btn-secondary btn-add-playlist"
           onClick={() =>
