@@ -1,11 +1,10 @@
 import React, { useState } from 'react';
 import VideosListing from "./VideosListing";
-import { videosDB } from "../data/videosDB";
 
-export default function Home() {
+export default function Home({ data, loading }) {
 
-    const [searchData, setSearchData] = useState(null)
-
+    const [searchData, setSearchData] = useState(null);
+    
     const searchHandler = e => {
         const receivedData = e.target.value;
         setSearchData(receivedData)
@@ -22,7 +21,7 @@ export default function Home() {
         return videosData
     }
 
-    const searchedData = getSearched( videosDB, searchData)
+    const searchedData = getSearched( data, searchData)
  
     return (
         <div>
@@ -32,6 +31,7 @@ export default function Home() {
                     <VideosListing video={video} key={video.videoId} />
                 )}
             </div>
+            { loading && <h2>loading ...</h2> }
         </div>
     )
 }

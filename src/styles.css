@@ -8,9 +8,7 @@ body {
     display: grid;
     grid-template-columns: 1fr 7fr;
     font-family: Arial, Helvetica, sans-serif;
-    background-color: black;
-    color: white;
-    height: 100vh;
+    color: black;
 }
 
 .list-items {
@@ -25,12 +23,14 @@ body {
 
 .list-links {
     text-decoration: none;
-    color: white;
+    color: black;
 }
 
 .card {
     height: 16rem;
     margin: 0.5rem 0;
+    border: 2px solid black;
+    border-radius: 0.2rem;
 }
 
 .card-body {
@@ -89,7 +89,6 @@ body {
 .navigation {
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
     align-items: center;
 }
 
@@ -157,7 +156,7 @@ body {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    height: 100vh;
+    width: 90vw;
 }
 
 .wrapper {
@@ -177,6 +176,17 @@ body {
     width: 75%;
 }
 
+.btn-margin-left {
+    height: 2rem;
+    margin-left: auto;
+}
+
+.btn-position-fixed {
+    position: fixed;
+    top: 90%;
+    left: 50%;
+}
+
 
 /* Mobile Styles */
 
@@ -190,6 +200,9 @@ body {
         margin: 0 0.5rem;
         width: 90%;
     }
+    .empty-container {
+        height: 90vh;
+    }
     .navigation {
         display: flex;
         flex-direction: row;
@@ -199,7 +212,7 @@ body {
         position: sticky;
         bottom: 0;
         z-index: 1;
-        background-color: black;
+        background-color: white;
     }
     .routes {
         grid-area: routes;
@@ -217,6 +230,7 @@ body {
     }
     .card {
         padding: 0 0.5rem;
+        border: 0;
     }
     .icon-sign-out {
         display: inline;
@@ -240,11 +254,12 @@ body {
 
 @media screen and (min-width: 325px) and (max-width: 480px) {
     .navigation {
-        width: 360px;
+        width: 100%;
+        position: fixed;
     }
     .search-bar {
         width: 85%;
-        margin: 0 0.75rem;
+        margin: 0 1rem;
     }
     .list-items {
         padding: 1.25rem;
@@ -257,5 +272,8 @@ body {
     }
     .login-container {
         margin: 0 2.5rem;
+    }
+    .main-container {
+        width: 90vw;
     }
 }

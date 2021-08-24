@@ -3,7 +3,7 @@ import React, { useState } from 'react'
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import useAuth from '../context/auth-context/useAuth';
 
-export default function Login() {
+export default function Signup() {
     const [formDetails, setformDetails] = useState({ username: "", password: "" })
     const { setuserLoggedIn } = useAuth();
 
@@ -14,12 +14,12 @@ export default function Login() {
         e.preventDefault();
         const { username, password } = formDetails;
         try {
-            const response = await axios.post("https://backend-video-library.herokuapp.com/user/login", {
+            const response = await axios.post("https://backend-video-library.herokuapp.com/user/signup", {
                 username, password
             })
             if(response.data.success) {
-                setuserLoggedIn(response.data.user);
-                navigate(state?.from ? state.from : "/login")
+                setuserLoggedIn(true)
+                navigate("/login",{ state })
             }
         } catch (error) {
             console.log("failed to login");
@@ -47,11 +47,11 @@ export default function Login() {
                     <input type="text" onChange={usernameHandler} className="input-styled login-inputs" placeholder="username" />
                     <input type="password" onChange={passwordHandler} className="input-styled login-inputs" placeholder="password" />
                     <button type="submit" className="btn btn-primary btn-login">
-                        login
+                        sign up
                     </button>
                 </form>
                 <div className="signup-container">
-                    <Link to="/signup" className="btn btn-secondary btn-signup text-align-center" state={state}>Sign Up</Link>
+                    <Link to="/login" className="btn btn-secondary btn-signup text-align-center" state={state}>login</Link>
                 </div>
             </div>
         </div>

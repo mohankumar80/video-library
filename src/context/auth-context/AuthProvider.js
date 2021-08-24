@@ -1,20 +1,15 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { AuthContext } from "./auth-context";
-import { fakeAuthApiCall } from "../../fakeAuthApiCall";
 
 export const AuthProvider = ({children}) => {
-    const [userLoggedIn, setuserLoggedIn] = useState(false)
+    const [userLoggedIn, setuserLoggedIn] = useState();
 
-    useEffect(() => {
-        const login = JSON.parse(localStorage?.getItem("login"))
-        login && setuserLoggedIn(true)
-    }, [])
+    // useEffect(() => {
+    //     const login = JSON.parse(localStorage?.getItem("login"))
+    //     login && setuserLoggedIn(true)
+    // }, [])
 
-    const loginUserWithCredentials = (username, password) => {
-        return fakeAuthApiCall(username, password)
-    }
-
-    return <AuthContext.Provider value={{ userLoggedIn, setuserLoggedIn, loginUserWithCredentials }}>
+    return <AuthContext.Provider value={{ userLoggedIn, setuserLoggedIn }}>
         {children}
     </AuthContext.Provider>
 }

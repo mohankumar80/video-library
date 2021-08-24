@@ -1,5 +1,7 @@
+import axios from "axios";
 import React from "react";
 import { Link } from "react-router-dom";
+import useAuth from "../../context/auth-context/useAuth";
 import { useVideos } from '../../context/videos-context/videos-context';
 
 export default function WatchLater() {
@@ -7,6 +9,24 @@ export default function WatchLater() {
     state: { watchLater },
     dispatch,
   } = useVideos();
+
+  const { userLoggedIn } = useAuth();
+  const userId = userLoggedIn?._id;
+
+  const removeVideoFromWatchLater = async (video) => {
+    try {
+      const response = await axios.delete(`https://backend-video-library.herokuapp.com/user/${userId}/watch-later`, {
+        data: {
+          videoId: video._id
+        }
+      })
+      if(response.data.success) {
+        dispatch({ type: "REMOVE_FROM_WATCH_LATER", payload: video })
+      }
+    } catch (error) {
+      
+    }
+  }
 
   return (
     <div className="WatchLater">
@@ -25,15 +45,7 @@ export default function WatchLater() {
                       alt={video.description}
                     />
                   </Link>
-                  <button
-                    className="card-dismiss btn btn-primary"
-                    onClick={() =>
-                      dispatch({
-                        type: "REMOVE_FROM_WATCH_LATER",
-                        payload: video,
-                      })
-                    }
-                  >
+                  <button className="card-dismiss btn btn-primary"onClick={() => removeVideoFromWatchLater(video)} >
                     &times;
                   </button>
                   <div className="card-body">
