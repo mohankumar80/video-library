@@ -1,5 +1,5 @@
 import axios from 'axios';
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import useAuth from '../context/auth-context/useAuth';
 
@@ -9,6 +9,14 @@ export default function Login() {
 
     const { state } = useLocation();
     const navigate = useNavigate();
+    
+    useEffect(() => {
+        const userLogin = JSON.parse(localStorage?.getItem("userLogin"))
+        if(userLogin) {
+            setuserLoggedIn(userLogin.user)
+            navigate(state?.from ? state.from : "/")
+        }
+    }, [setuserLoggedIn, state, navigate])
 
     const loginHandler = async e => {
         e.preventDefault();
@@ -19,6 +27,7 @@ export default function Login() {
             })
             if(response.data.success) {
                 setuserLoggedIn(response.data.user);
+                localStorage?.setItem("userLogin", JSON.stringify({ user: response.data.user }))
                 navigate(state?.from ? state.from : "/login")
             }
         } catch (error) {

@@ -12,7 +12,7 @@ export default function Navigation() {
 
     const signOutHandler = () => {
         setuserLoggedIn(false);
-        localStorage?.removeItem("login");
+        localStorage?.removeItem("userLogin");
         navigate("/");
     }
 
