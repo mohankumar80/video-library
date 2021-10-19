@@ -6,6 +6,8 @@ import { Navigation, Home, VideoCard, Login, Signup, NotFound, PrivateRoute } fr
 import {  History, WatchLater, LikedVideos, Playlist } from './private/index'
 import useAuth from "../context/auth-context/useAuth";
 import { useVideos } from "../context/videos-context/videos-context";
+import { ToastContainer } from "react-toastify";
+import 'react-toastify/dist/ReactToastify.css';
 
 export default function App() {
 
@@ -102,6 +104,7 @@ export default function App() {
     <div className="App">
       <Navigation />
       <div className="routes">
+      <ToastContainer />
         <Routes>
           <Route path="/" element={<Home data={data} loading={loading} />} />
           <Route path="/watch/:VideoId" element={<VideoCard data={data} />} />

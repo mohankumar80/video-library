@@ -8,6 +8,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faThumbsUp, faClock, faBookmark } from '@fortawesome/free-solid-svg-icons';
 import { faThumbsUp as farThumbsUp, faClock as farClock, faBookmark as farBookMark } from '@fortawesome/free-regular-svg-icons'
 import axios from 'axios';
+import { toast } from 'react-toastify';
 
 export default function VideoCard({ data }) {
 
@@ -28,6 +29,9 @@ export default function VideoCard({ data }) {
             })
             if(response.data.success) {
                 dispatch({ type: 'ADD_TO_LIKED_VIDEOS', payload: video })
+                toast.success("Added to Liked Videos", {
+                    position: toast.POSITION.BOTTOM_CENTER
+                });
             }
         } catch (error) {
             console.log("failed to add to liked videos")
@@ -43,6 +47,9 @@ export default function VideoCard({ data }) {
             })
             if(response.data.success) {
                 dispatch({ type: 'REMOVE_FROM_LIKED_VIDEOS', payload: video })
+                toast.success("Removed from Liked Videos", {
+                    position: toast.POSITION.BOTTOM_CENTER
+                });
             }
         } catch (error) {
             console.log("failed to delete from liked videos")
@@ -56,6 +63,9 @@ export default function VideoCard({ data }) {
             })
             if(response.data.success) {
                 dispatch({ type: 'ADD_TO_WATCH_LATER', payload: video })
+                toast.success("Added to Watch Later", {
+                    position: toast.POSITION.BOTTOM_CENTER
+                });
             }
         } catch (error) {
             console.log("failed to add to watch later")
@@ -71,6 +81,9 @@ export default function VideoCard({ data }) {
             })
             if(response.data.success) {
                 dispatch({ type: 'REMOVE_FROM_WATCH_LATER', payload: video })
+                toast.success("Removed from Watch Later", {
+                    position: toast.POSITION.BOTTOM_CENTER
+                });
             }
         } catch (error) {
             console.log("failed to delete from watch later")

@@ -1,6 +1,7 @@
 import axios from 'axios';
 import React from 'react';
 import { Link } from "react-router-dom";
+import { toast } from 'react-toastify';
 import useAuth from '../../context/auth-context/useAuth';
 import { useVideos } from '../../context/videos-context/videos-context';
 
@@ -20,6 +21,9 @@ export default function LikedVideos() {
           })
           if(response.data.success) {
             dispatch({ type: "REMOVE_FROM_LIKED_VIDEOS", payload: video })
+            toast.success("Removed from Liked Videos", {
+              position: toast.POSITION.BOTTOM_CENTER
+            });
           }
         } catch (error) {
           console.log("failed to delete the video from liked videos")

@@ -4,6 +4,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPlus, faTimes } from "@fortawesome/free-solid-svg-icons"
 import axios from "axios";
 import useAuth from "../context/auth-context/useAuth";
+import { toast } from "react-toastify";
 
 export default function Modal(props) {
   const {
@@ -32,6 +33,9 @@ export default function Modal(props) {
       })
       if(response.data.success) {
         dispatch({ type: "ADD_NEW_PLAYLIST", payload: inputBoxValue })
+        toast.success(`${inputBoxValue} playlist created`, {
+          position: toast.POSITION.BOTTOM_CENTER
+        });
       }
     } catch (error) {
       console.log("failed to add playlist name")
@@ -47,6 +51,9 @@ export default function Modal(props) {
       })
         if(response.data.success) {
         dispatch({ type: "REMOVE_FROM_INNER_PLAYLIST", payload: { video, playListId: playlist.id }})
+        toast.success(`Video removed from ${playlist.name}`, {
+          position: toast.POSITION.BOTTOM_CENTER
+        });
       }
     } catch (error) {
       console.log("failed to delete the video from the specified playlist")
@@ -59,7 +66,10 @@ export default function Modal(props) {
           playlistName: playlist.name
       })      
       if(response.data.success) {
-        dispatch({ type: "ADD_TO_INNER_PLAYLIST", payload: { video, playListId: playlist.id }})      
+        dispatch({ type: "ADD_TO_INNER_PLAYLIST", payload: { video, playListId: playlist.id }})
+        toast.success(`Video added to ${playlist.name}`, {
+          position: toast.POSITION.BOTTOM_CENTER
+        });      
       }
     } catch (error) {
       console.log("failed to add the video to the specified playlist")

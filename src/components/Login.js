@@ -1,6 +1,7 @@
 import axios from 'axios';
 import React, { useState, useEffect } from 'react'
 import { Link, useLocation, useNavigate } from 'react-router-dom';
+import { toast } from 'react-toastify';
 import useAuth from '../context/auth-context/useAuth';
 
 export default function Login() {
@@ -29,6 +30,9 @@ export default function Login() {
                 setuserLoggedIn(response.data.user);
                 localStorage?.setItem("userLogin", JSON.stringify({ user: response.data.user }))
                 navigate(state?.from ? state.from : "/login")
+                toast.success("Login Successfull", {
+                    position: toast.POSITION.BOTTOM_CENTER
+                });
             }
         } catch (error) {
             console.log("failed to login");

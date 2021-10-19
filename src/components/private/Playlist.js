@@ -1,6 +1,7 @@
 import axios from 'axios';
 import React from 'react';
 import { Link } from "react-router-dom"
+import { toast } from 'react-toastify';
 import useAuth from '../../context/auth-context/useAuth';
 import { useVideos } from '../../context/videos-context/videos-context';
 
@@ -19,6 +20,9 @@ export default function Playlist() {
         })
         if(response.data.success) {
           dispatch({ type: "CLEAR_PLAYLIST", payload: playlist.id })
+          toast.success(`${playlist.name} playlist deleted`, {
+            position: toast.POSITION.BOTTOM_CENTER
+          });
         }
       } catch (error) {
         console.log("failed to delete the playlist name");
@@ -34,6 +38,9 @@ export default function Playlist() {
         })
         if(response.data.success) {
           dispatch({ type: "REMOVE_FROM_INNER_PLAYLIST", payload: { video, playListId: playlist.id } })
+          toast.success(`Video removed from ${playlist.name}`, {
+            position: toast.POSITION.BOTTOM_CENTER
+          });
         }
       } catch (error) {
         console.log("failed to delete the video from the specified playlist");

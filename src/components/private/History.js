@@ -1,6 +1,7 @@
 import axios from "axios";
 import React from "react";
 import { Link } from "react-router-dom";
+import { toast } from "react-toastify";
 import useAuth from "../../context/auth-context/useAuth";
 import { useVideos } from '../../context/videos-context/videos-context';
 
@@ -22,6 +23,9 @@ export default function History() {
       })
       if(response.data.success) {
         dispatch({ type: 'REMOVE_FROM_HISTORY', payload: video })
+        toast.success("Removed from History", {
+          position: toast.POSITION.BOTTOM_CENTER
+        });
       }
     } catch (error) {
       console.log('failed to remove the video from history')
@@ -33,6 +37,9 @@ export default function History() {
       const response = await axios.delete(`https://backend-video-library.herokuapp.com/user/${userId}/clear-history`);
       if(response.data.success) {
         dispatch({ type: 'CLEAR_HISTORY' });
+        toast.success("History Cleared", {
+          position: toast.POSITION.BOTTOM_CENTER
+        });
       }
     } catch (error) {
       console.log(error)
